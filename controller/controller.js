@@ -70,4 +70,16 @@ const removeStorage = async (key) => {
     }
 };
 
-export { checkExist, setStorage, removeStorage }
+const searchAllItem = (keyword, listTrees, listRobotics) => {
+    let rslistTrees = [...listTrees];
+    let rslistRobotics = [...listRobotics];
+    let rslistRobotisFollowTree = [...listRobotics];
+
+    rslistTrees = rslistTrees.filter(item => item.id.includes(keyword));
+    rslistRobotics = rslistRobotics.filter(item => item.id.includes(keyword));
+    rslistRobotisFollowTree = rslistRobotisFollowTree.filter(item => item.treeFollowing.includes(keyword));
+
+    return { listTree: rslistTrees, listRobotic: rslistRobotics, listRoboticFollowTree: rslistRobotisFollowTree };
+}
+
+export { checkExist, setStorage, removeStorage, searchAllItem }

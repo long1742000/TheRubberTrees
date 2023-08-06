@@ -3,8 +3,9 @@ import NavBar from "./navbar";
 import COLORS from "../constants/colors";
 import { Ionicons } from "@expo/vector-icons";
 import { useEffect, useState } from "react";
-import { removeStorage } from "../controller/controller";
+import { removeStorage, searchAllItem } from "../controller/controller";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { ListTrees, Robotics } from "../stores/fakeData";
 
 const Home = ({ navigation }) => {
 
@@ -34,6 +35,12 @@ const Home = ({ navigation }) => {
         checkSignIn();
     }, [])
 
+    // Click search
+    const clickSearch = () => {
+        const rs = searchAllItem(keyword, ListTrees, Robotics);
+        navigation.push('Result', rs);
+    }
+
     return (
         <>
             {/* LOGO */}
@@ -50,6 +57,10 @@ const Home = ({ navigation }) => {
                         height: 150,
                     }}
                 ></Image>
+                <Button
+                    title="Log out"
+                    onPress={() => { removeStorage('user'); navigation.replace('Login') }}
+                ></Button>
             </View>
 
             {/* Search form */}
@@ -96,12 +107,13 @@ const Home = ({ navigation }) => {
                             justifyContent: 'center',
                             alignItems: 'center'
                         }}
+
+                        onPress={() => { clickSearch() }}
                     >
                         <Ionicons style={{ color: COLORS.primary }} name="search" size={18}></Ionicons>
                     </TouchableOpacity>
                 </View>
             </View>
-            <NavBar></NavBar>
         </>
     )
 }

@@ -1,8 +1,8 @@
-import { Text, TouchableOpacity, View } from "react-native"
+import { TouchableOpacity, View } from "react-native"
 import COLORS from "../constants/colors";
 import { Ionicons } from "@expo/vector-icons";
 
-const NavBar = () => {
+const NavBar = ({ navigation }) => {
     return (
         <View
             style={{
@@ -12,7 +12,8 @@ const NavBar = () => {
                 borderTopWidth: 1,
                 width: '100%',
                 flexDirection: 'row',
-                height: 40
+                height: 40,
+                backgroundColor: COLORS.white
             }}
         >
             <TouchableOpacity
@@ -21,6 +22,8 @@ const NavBar = () => {
                     alignItems: 'center',
                     justifyContent: 'center'
                 }}
+
+                onPress={() => { navigation.navigate('Home') }}
             >
                 <Ionicons style={{ color: COLORS.primary }} name="home" size={16}></Ionicons>
             </TouchableOpacity>

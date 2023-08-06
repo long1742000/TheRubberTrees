@@ -13,7 +13,6 @@ const Login = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
-    const [isSignIn, setIsSignIn] = useState(false);
 
     // Check sign in
     const checkSignIn = async () => {
