@@ -2,17 +2,39 @@ import { LinearGradient } from "expo-linear-gradient";
 import { Image, Text, TextInput, ToastAndroid, TouchableOpacity, View } from "react-native";
 import COLORS from "../constants/colors";
 import { Ionicons } from "@expo/vector-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import GeneralButton from "./button";
 import { Account } from "../stores/fakeData";
-import { checkExist } from "../controller/controller";
+import { checkExist, setStorage } from "../controller/controller";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const Login = () => {
+const Login = ({ navigation }) => {
     const [isShowPassword, setIsShowPassword] = useState(true);
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
+    const [isSignIn, setIsSignIn] = useState(false);
 
+    // Check sign in
+    const checkSignIn = async () => {
+        try {
+            await AsyncStorage.getItem('user')
+                .then(value => {
+                    if (value != null) {
+                        navigation.replace('Home');
+                    }
+                })
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
+    // componentDidMount
+    useEffect(() => {
+        checkSignIn();
+    }, [])
+
+    // Sign in controller
     const signIn = () => {
         if (email.length < 1 || phone.length < 1 || password.length < 1) {
             ToastAndroid.show('Please type all information', ToastAndroid.SHORT);
@@ -21,6 +43,8 @@ const Login = () => {
             const user = { email, phone, password };
             if (checkExist(user, Account)) {
                 ToastAndroid.show('SUCCESS!!!', ToastAndroid.SHORT);
+                setStorage('user', user);
+                navigation.replace('Home');
             }
             else {
                 ToastAndroid.show('Your account does not exist', ToastAndroid.SHORT);
