@@ -1,5 +1,4 @@
 import { Button, Image, Text, TextInput, TouchableOpacity, View } from "react-native";
-import NavBar from "./navbar";
 import COLORS from "../constants/colors";
 import { Ionicons } from "@expo/vector-icons";
 import { useEffect, useState } from "react";
@@ -57,10 +56,6 @@ const Home = ({ navigation }) => {
                         height: 150,
                     }}
                 ></Image>
-                <Button
-                    title="Log out"
-                    onPress={() => { removeStorage('user'); navigation.replace('Login') }}
-                ></Button>
             </View>
 
             {/* Search form */}

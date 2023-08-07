@@ -1,5 +1,4 @@
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
-import NavBar from "./navbar";
 import COLORS from "../constants/colors";
 import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
