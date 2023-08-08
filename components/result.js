@@ -11,7 +11,25 @@ const Result = ({ route, navigation }) => {
 
     return (
         <>
+            {/* If dont have any result */}
+            {listTree.length == 0 && listRobotics.length == 0 && listRoboticFollowTree.length == 0 &&
+                <View
+                    style={{
+                        flex: 1,
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }}
+                >
+                    <Text
+                        style={{
+                            color: 'gray'
+                        }}
+                    >No result</Text>
+                </View>
+            }
+
             <ScrollView>
+
                 {/* Rubber trees */}
                 {listTree.length > 0 &&
                     <View
