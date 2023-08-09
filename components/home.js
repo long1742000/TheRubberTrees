@@ -4,7 +4,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useEffect, useState } from "react";
 import { removeStorage, searchAllItem } from "../controller/controller";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { ListTrees, Robotics } from "../stores/fakeData";
+import { Countries, Fields, ListTrees, Plans, Regions, Robotics } from "../stores/fakeData";
 
 const Home = ({ navigation }) => {
 
@@ -36,7 +36,7 @@ const Home = ({ navigation }) => {
 
     // Click search
     const clickSearch = () => {
-        const rs = searchAllItem(keyword, ListTrees, Robotics);
+        const rs = searchAllItem(keyword, ListTrees, Robotics, Countries, Regions, Fields, Plans);
         navigation.push('Result', rs);
     }
 

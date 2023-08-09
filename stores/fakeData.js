@@ -11,9 +11,85 @@ const Account = [
     }
 ]
 
+const Countries = [
+    {
+        id: 1,
+        name: 'Viet Nam'
+    }
+]
+
+const Regions = [
+    {
+        id: 1,
+        countryId: 1,
+        name: 'Northern'
+    },
+    {
+        id: 2,
+        countryId: 1,
+        name: 'Central'
+    },
+    {
+        id: 3,
+        countryId: 1,
+        name: 'Southern'
+    }
+]
+
+const Fields = [
+    {
+        id: 1,
+        regionId: 1,
+        name: 'Ha Noi',
+        acreage: 1000
+    },
+    {
+        id: 2,
+        regionId: 1,
+        name: 'Hai Phong',
+        acreage: 1000
+    },
+    {
+        id: 3,
+        regionId: 2,
+        name: 'Hue',
+        acreage: 1000
+    },
+    {
+        id: 4,
+        regionId: 3,
+        name: 'Ho Chi Minh City',
+        acreage: 1000
+    },
+    {
+        id: 5,
+        regionId: 3,
+        name: 'Binh Duong',
+        acreage: 1000
+    }
+]
+
+const Plans = [
+    {
+        id: 1,
+        fieldId: 1,
+        name: 'Expand the scale',
+        description: 'Expand the area. Plant more trees',
+        startDate: { day: 9, month: 8, year: 2023 }
+    },
+    {
+        id: 2,
+        fieldId: 2,
+        name: 'Expand the scale',
+        description: 'Expand the area. Plant more trees',
+        startDate: { day: 9, month: 8, year: 2023 }
+    }
+]
+
 const ListTrees = [
     {
         id: 'ABC123',
+        fieldId: 1,
         longevity: 723,
         perimeter: 43.96,
         heightFromRootToTop: 3.2,
@@ -21,6 +97,7 @@ const ListTrees = [
     },
     {
         id: 'DEF456',
+        fieldId: 1,
         longevity: 633,
         perimeter: 43.96,
         heightFromRootToTop: 5.2,
@@ -28,6 +105,7 @@ const ListTrees = [
     },
     {
         id: 'ABD356',
+        fieldId: 2,
         longevity: 659,
         perimeter: 43.96,
         heightFromRootToTop: 5.2,
@@ -35,6 +113,7 @@ const ListTrees = [
     },
     {
         id: 'DGE759',
+        fieldId: 2,
         longevity: 695,
         perimeter: 43.96,
         heightFromRootToTop: 5.2,
@@ -42,6 +121,7 @@ const ListTrees = [
     },
     {
         id: 'ACE865',
+        fieldId: 3,
         longevity: 718,
         perimeter: 43.96,
         heightFromRootToTop: 5.2,
@@ -49,6 +129,7 @@ const ListTrees = [
     },
     {
         id: 'GVA156',
+        fieldId: 3,
         longevity: 465,
         perimeter: 43.96,
         heightFromRootToTop: 5.2,
@@ -56,6 +137,7 @@ const ListTrees = [
     },
     {
         id: 'ABC125',
+        fieldId: 4,
         longevity: 723,
         perimeter: 43.96,
         heightFromRootToTop: 3.2,
@@ -63,6 +145,7 @@ const ListTrees = [
     },
     {
         id: 'DEF458',
+        fieldId: 4,
         longevity: 633,
         perimeter: 43.96,
         heightFromRootToTop: 5.2,
@@ -70,6 +153,7 @@ const ListTrees = [
     },
     {
         id: 'ABD353',
+        fieldId: 5,
         longevity: 659,
         perimeter: 43.96,
         heightFromRootToTop: 5.2,
@@ -77,6 +161,7 @@ const ListTrees = [
     },
     {
         id: 'DGE751',
+        fieldId: 5,
         longevity: 695,
         perimeter: 43.96,
         heightFromRootToTop: 5.2,
@@ -85,12 +170,14 @@ const ListTrees = [
     {
         id: 'ACE863',
         longevity: 718,
+        fieldId: 1,
         perimeter: 43.96,
         heightFromRootToTop: 5.2,
         heightFromRootToCanopy: 3.3
     },
     {
         id: 'GVA150',
+        fieldId: 2,
         longevity: 465,
         perimeter: 43.96,
         heightFromRootToTop: 5.2,
@@ -98,6 +185,7 @@ const ListTrees = [
     },
     {
         id: 'ULT101',
+        fieldId: 3,
         longevity: 465,
         perimeter: 43.96,
         heightFromRootToTop: 5.2,
@@ -212,4 +300,4 @@ const Robotics = [
     }
 ]
 
-export { Account, ListTrees, Robotics };
+export { Countries, Regions, Fields, Plans, Account, ListTrees, Robotics };
