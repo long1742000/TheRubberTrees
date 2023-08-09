@@ -95,6 +95,13 @@ const ListTrees = [
         perimeter: 43.96,
         heightFromRootToTop: 5.2,
         heightFromRootToCanopy: 3.3
+    },
+    {
+        id: 'ULT101',
+        longevity: 465,
+        perimeter: 43.96,
+        heightFromRootToTop: 5.2,
+        heightFromRootToCanopy: 3.3
     }
 ]
 
@@ -190,6 +197,14 @@ const Robotics = [
     {
         id: 'RBT012',
         treeFollowing: 'GVA150',
+        averageOutputObtainedOneDay: 0.21,
+        averageOutputObtainedOneYear: 75.22,
+        averageOperatingOneDay: 4,
+        status: 1
+    },
+    {
+        id: 'RBT013',
+        treeFollowing: 'ULT101',
         averageOutputObtainedOneDay: 0.21,
         averageOutputObtainedOneYear: 75.22,
         averageOperatingOneDay: 4,

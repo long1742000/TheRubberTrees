@@ -2,6 +2,7 @@ import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import COLORS from "../constants/colors";
 import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
+import { ListTrees } from "../stores/fakeData";
 
 const Result = ({ route, navigation }) => {
 
@@ -28,6 +29,7 @@ const Result = ({ route, navigation }) => {
                 </View>
             }
 
+            {/* List result */}
             <ScrollView>
 
                 {/* Rubber trees */}
@@ -66,6 +68,8 @@ const Result = ({ route, navigation }) => {
                                             flexDirection: 'row',
                                             marginBottom: 5
                                         }}
+
+                                        onPress={() => { navigation.push('Detail', item) }}
                                     >
                                         <View
                                             style={{
@@ -122,6 +126,7 @@ const Result = ({ route, navigation }) => {
                             }}
                         >
                             {listRobotics.map((item, index) => {
+                                const data = ListTrees.filter(x => x.id === item.treeFollowing);
                                 return (
                                     <TouchableOpacity
                                         key={index}
@@ -135,6 +140,8 @@ const Result = ({ route, navigation }) => {
                                             flexDirection: 'row',
                                             marginBottom: 5
                                         }}
+
+                                        onPress={() => { navigation.push('Detail', data[0]) }}
                                     >
                                         <View
                                             style={{
@@ -190,6 +197,7 @@ const Result = ({ route, navigation }) => {
                             }}
                         >
                             {listRoboticFollowTree.map((item, index) => {
+                                const data = ListTrees.filter(x => x.id === item.treeFollowing);
                                 return (
                                     <TouchableOpacity
                                         key={index}
@@ -203,6 +211,8 @@ const Result = ({ route, navigation }) => {
                                             flexDirection: 'row',
                                             marginBottom: 5
                                         }}
+
+                                        onPress={() => { navigation.push('Detail', data[0]) }}
                                     >
                                         <View
                                             style={{
