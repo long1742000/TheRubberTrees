@@ -8,7 +8,8 @@ import { Ionicons } from '@expo/vector-icons';
 import COLORS from './constants/colors';
 import ListData from './components/listData';
 import Account from './components/account';
-import TreeDetail from './components/Treedetail';
+import Detail from './components/detail';
+import ChooseData from './components/chooseData';
 
 export default function App() {
 
@@ -25,7 +26,7 @@ export default function App() {
             if (rn === 'Home') {
               iconName = focused ? 'home' : 'home-outline'
             }
-            else if (rn === 'List') {
+            else if (rn === 'Choose') {
               iconName = focused ? 'list' : 'list-outline'
             }
             else if (rn === 'Account') {
@@ -42,7 +43,7 @@ export default function App() {
         }}
       >
         <Tab.Screen name='Home' component={Home} options={{ headerShown: false }}></Tab.Screen>
-        <Tab.Screen name='List' component={ListData} options={{ headerShown: false }}></Tab.Screen>
+        <Tab.Screen name='Choose' component={ChooseData} options={{ headerShown: false }}></Tab.Screen>
         <Tab.Screen name='Account' component={Account} options={{ headerShown: false }}></Tab.Screen>
       </Tab.Navigator>
     );
@@ -55,7 +56,8 @@ export default function App() {
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
         <Stack.Screen name="Home" component={HomeTabs} options={{ headerShown: false }} />
         <Stack.Screen name="Result" component={Result} />
-        <Stack.Screen name="Detail" component={TreeDetail} />
+        <Stack.Screen name="Detail" component={Detail} />
+        <Stack.Screen name="ListData" component={ListData} />
       </Stack.Navigator>
     </NavigationContainer>
   );

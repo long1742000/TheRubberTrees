@@ -106,6 +106,7 @@ const Result = ({ route, navigation }) => {
                                             marginBottom: 5
                                         }}
 
+                                        onPress={() => { navigation.push('Detail', { data: item, level: 'country' }) }}
                                     >
                                         <View
                                             style={{
@@ -203,6 +204,8 @@ const Result = ({ route, navigation }) => {
                                             flexDirection: 'row',
                                             marginBottom: 5
                                         }}
+
+                                        onPress={() => { navigation.push('Detail', { data: item, level: 'region' }) }}
 
                                     >
                                         <View
@@ -303,6 +306,7 @@ const Result = ({ route, navigation }) => {
                                             marginBottom: 5
                                         }}
 
+                                        onPress={() => { navigation.push('Detail', { data: item, level: 'region' }) }}
                                     >
                                         <View
                                             style={{
@@ -410,6 +414,7 @@ const Result = ({ route, navigation }) => {
                                             marginBottom: 5
                                         }}
 
+                                        onPress={() => { navigation.push('Detail', { data: item, level: 'field' }) }}
                                     >
                                         <View
                                             style={{
@@ -508,6 +513,7 @@ const Result = ({ route, navigation }) => {
                                             flexDirection: 'row',
                                             marginBottom: 5
                                         }}
+                                        onPress={() => { navigation.push('Detail', { data: item, level: 'field' }) }}
 
                                     >
                                         <View
@@ -616,7 +622,7 @@ const Result = ({ route, navigation }) => {
                                             marginBottom: 5
                                         }}
 
-                                        onPress={() => { navigation.push('Detail', item) }}
+                                        onPress={() => { navigation.push('Detail', { data: item, level: 'tree' }) }}
                                     >
                                         <View
                                             style={{
@@ -715,6 +721,7 @@ const Result = ({ route, navigation }) => {
                                             flexDirection: 'row',
                                             marginBottom: 5
                                         }}
+                                        onPress={() => { navigation.push('Detail', { data: item, level: 'tree' }) }}
 
                                     >
                                         <View
@@ -823,8 +830,7 @@ const Result = ({ route, navigation }) => {
                                             flexDirection: 'row',
                                             marginBottom: 5
                                         }}
-
-                                        onPress={() => { navigation.push('Detail', data[0]) }}
+                                        onPress={() => { navigation.push('Detail', { data: data[0], level: 'tree' }) }}
                                     >
                                         <View
                                             style={{
@@ -924,7 +930,7 @@ const Result = ({ route, navigation }) => {
                                             marginBottom: 5
                                         }}
 
-                                        onPress={() => { navigation.push('Detail', data[0]) }}
+                                        onPress={() => { navigation.push('Detail', { data: data[0], level: 'tree' }) }}
                                     >
                                         <View
                                             style={{
@@ -1032,6 +1038,8 @@ const Result = ({ route, navigation }) => {
                                             flexDirection: 'row',
                                             marginBottom: 5
                                         }}
+
+                                        onPress={() => { navigation.push('Detail', { data: item, level: 'plan' }) }}
 
                                     >
                                         <View

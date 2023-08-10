@@ -1,70 +1,28 @@
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import COLORS from "../constants/colors";
-import { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
-import { ListTrees, Robotics } from "../stores/fakeData";
+import { Countries, Fields, ListTrees, Regions, Robotics } from "../stores/fakeData";
 
-const ListData = ({ navigation }) => {
+const ListData = ({ navigation, route }) => {
 
-    const [list, setList] = useState('tree');
-    const [data, setData] = useState([...ListTrees]);
+    const list = route.params.list;
+    const data = route.params.data;
 
-    return (
-        <>
-            {/* Button change list */}
-            <View
-                style={{
-                    alignItems: 'center',
-                    flexDirection: 'row',
-                    height: 100
-                }}
-            >
-                <TouchableOpacity
+    switch (list) {
+        case 'country':
+            return (
+                <ScrollView
                     style={{
-                        borderColor: COLORS.grey,
-                        borderWidth: 1,
-                        paddingVertical: 10,
-                        width: '100%',
-                        flex: 1,
-                        marginLeft: 10,
-                        alignItems: 'center'
-                    }}
-
-                    onPress={() => { setList('tree'); setData([...ListTrees]) }}
-                >
-                    <Text style={{ color: list === 'tree' ? COLORS.primary : COLORS.black }}>Rubber trees</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                    style={{
-                        borderColor: COLORS.grey,
-                        borderWidth: 1,
-                        paddingVertical: 10,
-                        width: '100%',
-                        flex: 1,
-                        marginRight: 10,
-                        alignItems: 'center'
-                    }}
-
-                    onPress={() => { setList('robot'); setData([...Robotics]) }}
-                >
-                    <Text style={{ color: list === 'robot' ? COLORS.primary : COLORS.black }}>Robotics</Text>
-                </TouchableOpacity>
-            </View >
-
-            <ScrollView
-                style={{
-                    flex: 1
-                }}
-            >
-                {/* List data */}
-                <View
-                    style={{
-                        alignItems: 'center'
+                        flex: 1
                     }}
                 >
-                    {list === 'tree' &&
-                        data.map((item, index) => {
+                    {/* List data */}
+                    <View
+                        style={{
+                            alignItems: 'center'
+                        }}
+                    >
+                        {data.map((item, index) => {
                             return (
                                 <TouchableOpacity
                                     key={index}
@@ -76,10 +34,215 @@ const ListData = ({ navigation }) => {
                                         height: 50,
                                         backgroundColor: COLORS.white,
                                         flexDirection: 'row',
-                                        marginBottom: 5
+                                        marginTop: 5
                                     }}
 
-                                    onPress={() => { navigation.push('Detail', item) }}
+                                    onPress={() => { navigation.push('Detail', { data: item, level: list }) }}
+                                >
+                                    <View
+                                        style={{
+                                            flex: 1,
+                                            justifyContent: 'center'
+                                        }}
+                                    >
+                                        <Text
+                                            style={{
+                                                marginLeft: 10,
+                                                color: COLORS.primary,
+                                            }}
+                                        >
+                                            Name: {item.name}
+                                        </Text>
+                                    </View>
+                                    <View
+                                        style={{
+                                            flex: 1,
+                                            justifyContent: 'center',
+                                            alignItems: 'flex-end'
+                                        }}
+                                    >
+                                        <Ionicons style={{ color: COLORS.primary, marginRight: 10 }} name="arrow-forward-circle-outline" size={20} ></Ionicons>
+                                    </View>
+                                </TouchableOpacity>
+                            )
+                        })
+                        }
+                    </View>
+                </ScrollView>
+            )
+        case 'region':
+            return (
+                <ScrollView
+                    style={{
+                        flex: 1
+                    }}
+                >
+                    {/* List data */}
+                    <View
+                        style={{
+                            alignItems: 'center'
+                        }}
+                    >
+                        {data.map((item, index) => {
+                            const country = Countries.filter(x => x.id == item.countryId);
+                            return (
+                                <TouchableOpacity
+                                    key={index}
+                                    style={{
+                                        borderWidth: 1,
+                                        borderColor: COLORS.grey,
+                                        borderRadius: 5,
+                                        width: '90%',
+                                        height: 50,
+                                        backgroundColor: COLORS.white,
+                                        flexDirection: 'row',
+                                        marginTop: 5
+                                    }}
+
+                                    onPress={() => { navigation.push('Detail', { data: item, level: list }) }}
+                                >
+                                    <View
+                                        style={{
+                                            flex: 1,
+                                            justifyContent: 'center'
+                                        }}
+                                    >
+                                        <Text
+                                            style={{
+                                                marginLeft: 10,
+                                                color: COLORS.primary,
+                                            }}
+                                        >
+                                            Name: {item.name}
+                                        </Text>
+                                        <Text
+                                            style={{
+                                                marginLeft: 10,
+                                                color: COLORS.primary,
+                                                fontSize: 10
+                                            }}
+                                        >
+                                            Belong to: {country[0].name}
+                                        </Text>
+                                    </View>
+                                    <View
+                                        style={{
+                                            flex: 1,
+                                            justifyContent: 'center',
+                                            alignItems: 'flex-end'
+                                        }}
+                                    >
+                                        <Ionicons style={{ color: COLORS.primary, marginRight: 10 }} name="arrow-forward-circle-outline" size={20} ></Ionicons>
+                                    </View>
+                                </TouchableOpacity>
+                            )
+                        })
+                        }
+                    </View>
+                </ScrollView>
+            )
+        case 'field':
+            return (
+                <ScrollView
+                    style={{
+                        flex: 1
+                    }}
+                >
+                    {/* List data */}
+                    <View
+                        style={{
+                            alignItems: 'center'
+                        }}
+                    >
+                        {data.map((item, index) => {
+                            const region = Regions.filter(x => x.id == item.regionId);
+                            const country = Countries.filter(x => x.id == region[0].countryId);
+                            return (
+                                <TouchableOpacity
+                                    key={index}
+                                    style={{
+                                        borderWidth: 1,
+                                        borderColor: COLORS.grey,
+                                        borderRadius: 5,
+                                        width: '90%',
+                                        height: 50,
+                                        backgroundColor: COLORS.white,
+                                        flexDirection: 'row',
+                                        marginTop: 5
+                                    }}
+
+                                    onPress={() => { navigation.push('Detail', { data: item, level: list }) }}
+                                >
+                                    <View
+                                        style={{
+                                            flex: 1,
+                                            justifyContent: 'center'
+                                        }}
+                                    >
+                                        <Text
+                                            style={{
+                                                marginLeft: 10,
+                                                color: COLORS.primary,
+                                            }}
+                                        >
+                                            Name: {item.name}
+                                        </Text>
+                                        <Text
+                                            style={{
+                                                marginLeft: 10,
+                                                color: COLORS.primary,
+                                                fontSize: 10
+                                            }}
+                                        >
+                                            Belong to: {region[0].name} {country[0].name}
+                                        </Text>
+                                    </View>
+                                    <View
+                                        style={{
+                                            flex: 1,
+                                            justifyContent: 'center',
+                                            alignItems: 'flex-end'
+                                        }}
+                                    >
+                                        <Ionicons style={{ color: COLORS.primary, marginRight: 10 }} name="arrow-forward-circle-outline" size={20} ></Ionicons>
+                                    </View>
+                                </TouchableOpacity>
+                            )
+                        })
+                        }
+                    </View>
+                </ScrollView>
+            )
+        case 'tree':
+            return (
+                <ScrollView
+                    style={{
+                        flex: 1
+                    }}
+                >
+                    {/* List data */}
+                    <View
+                        style={{
+                            alignItems: 'center'
+                        }}
+                    >
+                        {data.map((item, index) => {
+                            const field = Fields.filter(x => x.id == item.fieldId);
+                            return (
+                                <TouchableOpacity
+                                    key={index}
+                                    style={{
+                                        borderWidth: 1,
+                                        borderColor: COLORS.grey,
+                                        borderRadius: 5,
+                                        width: '90%',
+                                        height: 50,
+                                        backgroundColor: COLORS.white,
+                                        flexDirection: 'row',
+                                        marginTop: 5
+                                    }}
+
+                                    onPress={() => { navigation.push('Detail', { data: item, level: list }) }}
                                 >
                                     <View
                                         style={{
@@ -102,7 +265,7 @@ const ListData = ({ navigation }) => {
                                                 fontSize: 10
                                             }}
                                         >
-                                            Longevity: {item.longevity}
+                                            Belong to: {field[0].name}
                                         </Text>
                                     </View>
                                     <View
@@ -117,10 +280,25 @@ const ListData = ({ navigation }) => {
                                 </TouchableOpacity>
                             )
                         })
-                    }
-                    {list === 'robot' &&
-                        data.map((item, index) => {
-                            const data = ListTrees.filter(x => x.id === item.treeFollowing);
+                        }
+                    </View>
+                </ScrollView>
+            )
+        case 'robot':
+            return (
+                <ScrollView
+                    style={{
+                        flex: 1
+                    }}
+                >
+                    {/* List data */}
+                    <View
+                        style={{
+                            alignItems: 'center'
+                        }}
+                    >
+                        {data.map((item, index) => {
+                            const treeFollowing = ListTrees.filter(x => x.id == item.treeFollowing);
                             return (
                                 <TouchableOpacity
                                     key={index}
@@ -132,10 +310,10 @@ const ListData = ({ navigation }) => {
                                         height: 50,
                                         backgroundColor: COLORS.white,
                                         flexDirection: 'row',
-                                        marginBottom: 5
+                                        marginTop: 5
                                     }}
 
-                                    onPress={() => { navigation.push('Detail', data[0]) }}
+                                    onPress={() => { navigation.push('Detail', { data: item, level: list }) }}
                                 >
                                     <View
                                         style={{
@@ -158,7 +336,7 @@ const ListData = ({ navigation }) => {
                                                 fontSize: 10
                                             }}
                                         >
-                                            Status: {item.status == 1 ? 'ON' : 'OFF'}
+                                            Following tree: {treeFollowing[0].id}
                                         </Text>
                                     </View>
                                     <View
@@ -173,11 +351,82 @@ const ListData = ({ navigation }) => {
                                 </TouchableOpacity>
                             )
                         })
-                    }
-                </View>
-            </ScrollView>
-        </>
-    )
+                        }
+                    </View>
+                </ScrollView>
+            )
+        case 'plan':
+            return (
+                <ScrollView
+                    style={{
+                        flex: 1
+                    }}
+                >
+                    {/* List data */}
+                    <View
+                        style={{
+                            alignItems: 'center'
+                        }}
+                    >
+                        {data.map((item, index) => {
+                            const field = Fields.filter(x => x.id == item.fieldId);
+                            return (
+                                <TouchableOpacity
+                                    key={index}
+                                    style={{
+                                        borderWidth: 1,
+                                        borderColor: COLORS.grey,
+                                        borderRadius: 5,
+                                        width: '90%',
+                                        height: 50,
+                                        backgroundColor: COLORS.white,
+                                        flexDirection: 'row',
+                                        marginTop: 5
+                                    }}
+
+                                    onPress={() => { navigation.push('Detail', { data: item, level: list }) }}
+                                >
+                                    <View
+                                        style={{
+                                            flex: 1,
+                                            justifyContent: 'center'
+                                        }}
+                                    >
+                                        <Text
+                                            style={{
+                                                marginLeft: 10,
+                                                color: COLORS.primary,
+                                            }}
+                                        >
+                                            Name: {item.name}
+                                        </Text>
+                                        <Text
+                                            style={{
+                                                marginLeft: 10,
+                                                color: COLORS.primary,
+                                                fontSize: 10
+                                            }}
+                                        >
+                                            Plan of {field[0].name} field
+                                        </Text>
+                                    </View>
+                                    <View
+                                        style={{
+                                            flex: 1,
+                                            justifyContent: 'center',
+                                            alignItems: 'flex-end'
+                                        }}
+                                    >
+                                        <Ionicons style={{ color: COLORS.primary, marginRight: 10 }} name="arrow-forward-circle-outline" size={20} ></Ionicons>
+                                    </View>
+                                </TouchableOpacity>
+                            )
+                        })
+                        }
+                    </View>
+                </ScrollView>
+            )
+    }
 }
 
 export default ListData;

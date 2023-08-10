@@ -74,14 +74,14 @@ const Plans = [
         id: 1,
         fieldId: 1,
         name: 'Expand the scale',
-        description: 'Expand the area. Plant more trees',
+        description: 'Expand the area. Plant more trees. And hire more labor to increase productivity. Order more robotic to control production',
         startDate: { day: 9, month: 8, year: 2023 }
     },
     {
         id: 2,
         fieldId: 2,
         name: 'Expand the scale',
-        description: 'Expand the area. Plant more trees',
+        description: 'Expand the area. Plant more trees. And hire more labor to increase productivity. Order more robotic to control production',
         startDate: { day: 9, month: 8, year: 2023 }
     }
 ]
