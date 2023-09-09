@@ -197,105 +197,131 @@ const Robotics = [
     {
         id: 'RBT001',
         treeFollowing: 'ABC123',
+        dateOfInstallation: '02/05/2015',
         averageOutputObtainedOneDay: 0.3,
         averageOutputObtainedOneYear: 98.2,
         averageOperatingOneDay: 4,
+        image: 'robot.jpg',
         status: 1
     },
     {
         id: 'RBT002',
         treeFollowing: 'DEF456',
+        dateOfInstallation: '02/05/2015',
         averageOutputObtainedOneDay: 0.33,
         averageOutputObtainedOneYear: 95.2,
         averageOperatingOneDay: 4,
+        image: 'robot.jpg',
         status: 1
     },
     {
         id: 'RBT003',
         treeFollowing: 'ABD356',
+        dateOfInstallation: '02/05/2015',
         averageOutputObtainedOneDay: 0.35,
         averageOutputObtainedOneYear: 96.2,
         averageOperatingOneDay: 4,
+        image: 'robot.jpg',
         status: 1
     },
     {
         id: 'RBT004',
         treeFollowing: 'DGE759',
+        dateOfInstallation: '02/05/2015',
         averageOutputObtainedOneDay: 0.28,
         averageOutputObtainedOneYear: 82.23,
         averageOperatingOneDay: 4,
+        image: 'robot.jpg',
         status: 1
     },
     {
         id: 'RBT005',
         treeFollowing: 'ACE865',
+        dateOfInstallation: '02/05/2015',
         averageOutputObtainedOneDay: 0.36,
         averageOutputObtainedOneYear: 97.6,
         averageOperatingOneDay: 4,
+        image: 'robot.jpg',
         status: 1
     },
     {
         id: 'RBT006',
         treeFollowing: 'GVA156',
+        dateOfInstallation: '02/05/2015',
         averageOutputObtainedOneDay: 0.21,
         averageOutputObtainedOneYear: 75.22,
         averageOperatingOneDay: 4,
+        image: 'robot.jpg',
         status: 1
     },
     {
         id: 'RBT007',
         treeFollowing: 'ABC125',
+        dateOfInstallation: '02/05/2015',
         averageOutputObtainedOneDay: 0.3,
         averageOutputObtainedOneYear: 98.2,
         averageOperatingOneDay: 4,
+        image: 'robot.jpg',
         status: 1
     },
     {
         id: 'RBT008',
         treeFollowing: 'DEF458',
+        dateOfInstallation: '02/05/2015',
         averageOutputObtainedOneDay: 0.33,
         averageOutputObtainedOneYear: 95.2,
         averageOperatingOneDay: 4,
+        image: 'robot.jpg',
         status: 1
     },
     {
         id: 'RBT009',
         treeFollowing: 'ABD353',
+        dateOfInstallation: '02/05/2015',
         averageOutputObtainedOneDay: 0.35,
         averageOutputObtainedOneYear: 96.2,
         averageOperatingOneDay: 4,
+        image: 'robot.jpg',
         status: 1
     },
     {
         id: 'RBT010',
         treeFollowing: 'DGE751',
+        dateOfInstallation: '02/05/2015',
         averageOutputObtainedOneDay: 0.28,
         averageOutputObtainedOneYear: 82.23,
         averageOperatingOneDay: 4,
+        image: 'robot.jpg',
         status: 1
     },
     {
         id: 'RBT011',
         treeFollowing: 'ACE863',
+        dateOfInstallation: '02/05/2015',
         averageOutputObtainedOneDay: 0.36,
         averageOutputObtainedOneYear: 97.6,
         averageOperatingOneDay: 4,
+        image: 'robot.jpg',
         status: 1
     },
     {
         id: 'RBT012',
         treeFollowing: 'GVA150',
+        dateOfInstallation: '02/05/2015',
         averageOutputObtainedOneDay: 0.21,
         averageOutputObtainedOneYear: 75.22,
         averageOperatingOneDay: 4,
+        image: 'robot.jpg',
         status: 1
     },
     {
         id: 'RBT013',
         treeFollowing: 'ULT101',
+        dateOfInstallation: '02/05/2015',
         averageOutputObtainedOneDay: 0.21,
         averageOutputObtainedOneYear: 75.22,
         averageOperatingOneDay: 4,
+        image: 'robot.jpg',
         status: 1
     }
 ]

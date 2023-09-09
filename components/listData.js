@@ -1,7 +1,7 @@
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import COLORS from "../constants/colors";
 import { Ionicons } from "@expo/vector-icons";
-import { Countries, Fields, ListTrees, Regions, Robotics } from "../stores/fakeData";
+import { Countries, Fields, ListTrees, Regions } from "../stores/fakeData";
 
 const ListData = ({ navigation, route }) => {
 

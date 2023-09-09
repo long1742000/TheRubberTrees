@@ -1,4 +1,4 @@
-import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { Countries, Fields, ListTrees, Plans, Regions, Robotics } from "../stores/fakeData";
 import COLORS from "../constants/colors";
 import { Ionicons } from "@expo/vector-icons";
@@ -785,6 +785,152 @@ const Detail = ({ navigation, route }) => {
                         </View>
                     </View>
 
+                </>
+            )
+        case 'robot':
+            return (
+                <>
+                    {/* ROBOT IMAGE */}
+                    <View
+                        style={{
+                            flex: 1,
+                            alignItems: 'center',
+                            justifyContent: 'center'
+                        }}
+                    >
+                        <Image source={require('../assets/images/robot.png')}
+                            style={{
+                                width: 150,
+                                height: 150,
+                            }}
+                        ></Image>
+                    </View>
+
+                    {/* ROBOT DETAIL */}
+                    <View
+                        style={{
+                            alignItems: 'center',
+                            flex: 2
+                        }}
+                    >
+                        <View
+                            style={{
+                                borderColor: COLORS.grey,
+                                borderWidth: 1,
+                                borderRadius: 5,
+                                width: '90%',
+                                backgroundColor: COLORS.white,
+                            }}
+                        >
+                            <View
+                                style={{
+                                    width: '100%',
+                                    flexDirection: 'row',
+                                    padding: 10
+                                }}
+                            >
+                                <View
+                                    style={{
+                                        flex: 1
+                                    }}
+                                >
+                                    <Text style={{ fontWeight: 500 }}>ID:</Text>
+                                </View>
+
+                                <Text style={{ color: COLORS.primary }}>{data.id}</Text>
+                            </View>
+
+                            <View
+                                style={{
+                                    width: '100%',
+                                    flexDirection: 'row',
+                                    padding: 10
+                                }}
+                            >
+                                <View
+                                    style={{
+                                        flex: 1
+                                    }}
+                                >
+                                    <Text style={{ fontWeight: 500 }}>Date of installation:</Text>
+                                </View>
+
+                                <Text style={{ color: COLORS.primary }}>{data.dateOfInstallation}</Text>
+                            </View>
+
+                            <View
+                                style={{
+                                    width: '100%',
+                                    flexDirection: 'row',
+                                    padding: 10
+                                }}
+                            >
+                                <View
+                                    style={{
+                                        flex: 1
+                                    }}
+                                >
+                                    <Text style={{ fontWeight: 500 }}>Average operating one day:</Text>
+                                </View>
+
+                                <Text style={{ color: COLORS.primary }}>{data.averageOperatingOneDay} h/day</Text>
+                            </View>
+
+                            <View
+                                style={{
+                                    width: '100%',
+                                    flexDirection: 'row',
+                                    padding: 10
+                                }}
+                            >
+                                <View
+                                    style={{
+                                        flex: 1
+                                    }}
+                                >
+                                    <Text style={{ fontWeight: 500 }}>Average output obtained one day:</Text>
+                                </View>
+
+                                <Text style={{ color: COLORS.primary }}>{data.averageOutputObtainedOneDay} L/day</Text>
+                            </View>
+
+                            <View
+                                style={{
+                                    width: '100%',
+                                    flexDirection: 'row',
+                                    padding: 10
+                                }}
+                            >
+                                <View
+                                    style={{
+                                        flex: 1
+                                    }}
+                                >
+                                    <Text style={{ fontWeight: 500 }}>Average output obtained one year:</Text>
+                                </View>
+
+                                <Text style={{ color: COLORS.primary }}>{data.averageOutputObtainedOneYear} L/year</Text>
+                            </View>
+
+                            <View
+                                style={{
+                                    width: '100%',
+                                    flexDirection: 'row',
+                                    padding: 10
+                                }}
+                            >
+                                <View
+                                    style={{
+                                        flex: 1
+                                    }}
+                                >
+                                    <Text style={{ fontWeight: 500 }}>Status:</Text>
+                                </View>
+
+                                <Text style={{ color: COLORS.primary }}>{data.status === 1 ? 'ON' : 'OFF'}</Text>
+                            </View>
+                        </View>
+                    </View>
                 </>
             )
     }
